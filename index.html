@@ -1,11 +1,5 @@
 <!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="robots" content="noindex,nofollow">
-</head>
-<body>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="noindex,nofollow"></head><body style="margin:0">
 <title>VATO by YachtWay</title>
 <script>if('IntersectionObserver' in window&&!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('js')</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -677,14 +671,21 @@ h1.l{font-size:clamp(36px,7.4vw,84px);line-height:1.02;font-weight:600;max-width
 }
 
 /* YachtWay site header, matches yachtway.com */
-.ywh{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(18,18,22,.72);backdrop-filter:saturate(1.6) blur(18px);-webkit-backdrop-filter:saturate(1.6) blur(18px);color:var(--white);font-family:var(--text);border-bottom:1px solid rgba(255,255,255,.08)}
+.ywh{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(34,34,45,.2);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:var(--white);font-family:var(--text);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;transition:transform .3s,background-color .2s,color .2s}
+.ywh.is-s{background:#fff;backdrop-filter:none;-webkit-backdrop-filter:none;color:#22222d;box-shadow:0 1px 0 #ececf0}
+.ywh.is-up{transform:translateY(-100%)}
+.ywh.is-s .ywh-logo,.ywh.is-s .ywh-nav>a,.ywh.is-s .ywh-dd>button,.ywh.is-s .ywh-in-l,.ywh.is-s .ywh-ib{color:#22222d}
+.ywh.is-s .ywh-nav .ywh-sr{background:none;border-color:#e6dcf4;color:#22222d}
+.ywh.is-s .ywh-cta{background:#fff;color:#22222d;border-color:#22222d}
+.ywh.is-s .ywh-cta:hover{background:#22222d;color:#fff}
 .ywh .ic{width:20px;height:20px;display:block;flex:none}
 .ywh-in{display:flex;align-items:center;gap:32px;height:72px;padding-inline:clamp(16px,2.8vw,40px)}
 .ywh-logo{display:flex;color:var(--white);flex:none}
-.ywlogo{height:27px;width:auto;display:block}
+.ywlogo{height:31px;width:auto;display:block}
 .ywh-nav{display:flex;align-items:center;gap:32px;height:100%}
-.ywh-nav>a,.ywh-dd>button{display:flex;align-items:center;gap:4px;height:100%;font:500 15px/1 var(--text);color:var(--white);text-decoration:none;background:none;border:0;padding:0;cursor:pointer;white-space:nowrap}
-.ywh-nav>a:hover,.ywh-dd>button:hover{color:var(--g200)}
+.ywh-nav>a,.ywh-dd>button{display:flex;align-items:center;gap:4px;height:100%;font:500 14px/1 var(--text);color:var(--white);text-decoration:none;background:none;border:0;padding:0;cursor:pointer;white-space:nowrap}
+.ywh-dd>button{font-size:16px}
+.ywh-nav>a:hover,.ywh-dd>button:hover{opacity:.8}
 .ywh-dd{position:relative;height:100%;display:flex}
 .ywh-dd .ic{width:16px;height:16px;transition:transform .2s}
 .ywh-dd>button[aria-expanded="true"] .ic{transform:rotate(180deg)}
@@ -692,11 +693,11 @@ h1.l{font-size:clamp(36px,7.4vw,84px);line-height:1.02;font-weight:600;max-width
 .ywh-pop a{padding:10px 12px;border-radius:6px;font-size:15px;color:var(--g100);text-decoration:none}
 .ywh-pop a:hover{background:rgba(255,255,255,.06);color:var(--white)}
 .ywh-pop a[aria-current]{color:var(--white);font-weight:600}
-.ywh-nav .ywh-sr{width:36px;height:36px;justify-content:center;border:1px solid rgba(255,255,255,.28);border-radius:50%}
+.ywh-nav .ywh-sr{width:36px;height:36px;justify-content:center;background:rgba(34,34,45,.4);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.2);border-radius:50%}
 .ywh-sr .ic{width:16px;height:16px}
-.ywh-acts{display:flex;align-items:center;gap:28px;margin-left:auto}
-.ywh-lang{display:flex;align-items:center;gap:8px;font-size:15px}
-.ywh-in-l{font-size:14px;text-decoration:none;color:var(--white)}
+.ywh-acts{display:flex;align-items:center;gap:32px;margin-left:auto}
+.ywh-lang{display:flex;align-items:center;gap:8px;font:500 16px/1 var(--text)}
+.ywh-in-l{font:500 14px/1 var(--text);text-decoration:none;color:var(--white)}
 .ywh-cta{display:inline-flex;align-items:center;height:40px;padding-inline:20px;border:1px solid var(--white);border-radius:4px;font:500 14px/1 var(--text);color:var(--white);text-decoration:none;white-space:nowrap}
 .ywh-cta:hover{background:var(--white);color:var(--g950)}
 .ywh-m,.ywh-mt,.ywh-menu{display:none}
@@ -1192,6 +1193,8 @@ h1.l{font-size:clamp(36px,7.4vw,84px);line-height:1.02;font-weight:600;max-width
   var mb=d.querySelector('.ywh button.ywh-m'),mm=d.getElementById('ywh-menu');
   if(mb){mb.addEventListener('click',function(){var o=mm.hidden;mm.hidden=!o;mb.setAttribute('aria-expanded',o);mb.setAttribute('aria-label',o?'Close menu':'Open menu')});
     mm.addEventListener('click',function(e){if(e.target.tagName==='A'){mm.hidden=true;mb.setAttribute('aria-expanded','false')}})}
+  var hd=d.querySelector('.ywh'),ly=0;
+  if(hd){var hs=function(){var y=window.scrollY;hd.classList.toggle('is-s',y>8);hd.classList.toggle('is-up',y>ly&&y>200&&mm.hidden&&pop.hidden);ly=y};addEventListener('scroll',hs,{passive:true});hs()}
   // request access modal
   var dlg=d.getElementById('access');
   if(dlg&&dlg.showModal){
@@ -1288,5 +1291,4 @@ h1.l{font-size:clamp(36px,7.4vw,84px);line-height:1.02;font-weight:600;max-width
 })();
 </script>
 
-</body>
-</html>
+</body></html>
