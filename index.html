@@ -703,6 +703,7 @@ h2.big{font-size:clamp(32px,5.4vw,60px);line-height:1.06;font-weight:600}
 .ywh+main>.rhero:first-child{margin-top:calc(-1*var(--hh));padding-top:calc(var(--hh) + clamp(56px,9vw,112px))}
 .ywh{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(34,34,45,.2);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:var(--white);font-family:var(--text);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;transition:transform .3s,background-color .2s,color .2s}
 .ywh.is-s{background:#fff;backdrop-filter:none;-webkit-backdrop-filter:none;color:#22222d;box-shadow:0 1px 0 #ececf0}
+.ywh.is-d{background:rgba(18,18,22,.88);box-shadow:0 1px 0 rgba(255,255,255,.08)}
 .ywh.is-up{transform:translateY(calc(-100% - 4px));box-shadow:none}
 .ywh.is-s .ywh-logo,.ywh.is-s .ywh-nav>a,.ywh.is-s .ywh-dd>button,.ywh.is-s .ywh-in-l,.ywh.is-s .ywh-ib{color:#22222d}
 .ywh.is-s .ywh-nav .ywh-sr{background:none;border-color:#e6dcf4;color:#22222d}
@@ -1229,7 +1230,7 @@ h2.big{font-size:clamp(32px,5.4vw,60px);line-height:1.06;font-weight:600}
   if(mb){mb.addEventListener('click',function(){var o=mm.hidden;mm.hidden=!o;mb.setAttribute('aria-expanded',o);mb.setAttribute('aria-label',o?'Close menu':'Open menu')});
     mm.addEventListener('click',function(e){if(e.target.tagName==='A'){mm.hidden=true;mb.setAttribute('aria-expanded','false')}})}
   var hd=d.querySelector('.ywh'),ly=0;
-  if(hd){var hs=function(){var y=window.scrollY;hd.classList.toggle('is-s',y>8);hd.classList.toggle('is-up',y>ly&&y>200&&mm.hidden&&pop.hidden);ly=y};addEventListener('scroll',hs,{passive:true});hs()}
+  if(hd){var hs=function(){var y=window.scrollY;var hy=hd.offsetHeight/2,dk=false;document.querySelectorAll('main>section').forEach(function(x){var r=x.getBoundingClientRect();if(r.top<=hy&&r.bottom>hy)dk=x.matches('.dark,.scene,#join')});hd.classList.toggle('is-s',y>8&&!dk);hd.classList.toggle('is-d',y>8&&dk);hd.classList.toggle('is-up',y>ly&&y>200&&mm.hidden&&pop.hidden);ly=y};addEventListener('scroll',hs,{passive:true});hs()}
   // request access modal
   var dlg=d.getElementById('access');
   if(dlg&&dlg.showModal){
