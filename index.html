@@ -673,7 +673,7 @@ h1.l{font-size:clamp(36px,7.4vw,84px);line-height:1.02;font-weight:600;max-width
 /* YachtWay site header, matches yachtway.com */
 .ywh{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(34,34,45,.2);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:var(--white);font-family:var(--text);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;transition:transform .3s,background-color .2s,color .2s}
 .ywh.is-s{background:#fff;backdrop-filter:none;-webkit-backdrop-filter:none;color:#22222d;box-shadow:0 1px 0 #ececf0}
-.ywh.is-up{transform:translateY(-100%)}
+.ywh.is-up{transform:translateY(calc(-100% - 4px));box-shadow:none}
 .ywh.is-s .ywh-logo,.ywh.is-s .ywh-nav>a,.ywh.is-s .ywh-dd>button,.ywh.is-s .ywh-in-l,.ywh.is-s .ywh-ib{color:#22222d}
 .ywh.is-s .ywh-nav .ywh-sr{background:none;border-color:#e6dcf4;color:#22222d}
 .ywh.is-s .ywh-cta{background:#fff;color:#22222d;border-color:#22222d}
