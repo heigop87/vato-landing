@@ -343,6 +343,7 @@ h2.big{font-size:clamp(32px,5.4vw,60px);line-height:1.06;font-weight:600}
 
 /* pdf contents */
 .pdf{background:var(--white);color:var(--g950)}
+.pinwrap{position:relative;isolation:isolate}
 #how{position:sticky;top:0;z-index:0}
 #how::after{content:"";position:absolute;inset:0;background:var(--g950);opacity:var(--dim,0);pointer-events:none}
 .lift{position:relative;z-index:1;margin-top:calc(-1*clamp(32px,5vw,56px));border-radius:clamp(32px,5vw,56px) clamp(32px,5vw,56px) 0 0;box-shadow:0 -1px 0 var(--g100),0 -40px 80px -44px rgba(18,18,22,.16)}
@@ -865,6 +866,7 @@ h2.big{font-size:clamp(32px,5.4vw,60px);line-height:1.06;font-weight:600}
   </div>
 </section>
 
+<div class="pinwrap">
 <section class="light pad" id="how">
   <div class="wrap speed">
     <div class="sec-head">
@@ -927,6 +929,7 @@ h2.big{font-size:clamp(32px,5.4vw,60px);line-height:1.06;font-weight:600}
     </div>
   </div>
 </section>
+</div>
 
 <section class="dark pad">
   <div class="wrap proof">
@@ -1230,7 +1233,7 @@ h2.big{font-size:clamp(32px,5.4vw,60px);line-height:1.06;font-weight:600}
   if(mb){mb.addEventListener('click',function(){var o=mm.hidden;mm.hidden=!o;mb.setAttribute('aria-expanded',o);mb.setAttribute('aria-label',o?'Close menu':'Open menu')});
     mm.addEventListener('click',function(e){if(e.target.tagName==='A'){mm.hidden=true;mb.setAttribute('aria-expanded','false')}})}
   var hd=d.querySelector('.ywh'),ly=0;
-  if(hd){var hs=function(){var y=window.scrollY;var hy=hd.offsetHeight/2,dk=false;document.querySelectorAll('main>section').forEach(function(x){var r=x.getBoundingClientRect();if(r.top<=hy&&r.bottom>hy)dk=x.matches('.dark,.scene,#join')});hd.classList.toggle('is-s',y>8&&!dk);hd.classList.toggle('is-d',y>8&&dk);hd.classList.toggle('is-up',y>ly&&y>200&&mm.hidden&&pop.hidden);ly=y};addEventListener('scroll',hs,{passive:true});hs()}
+  if(hd){var hs=function(){var y=window.scrollY;var hy=hd.offsetHeight/2,dk=false;document.querySelectorAll('main>section,main>.pinwrap>section').forEach(function(x){var r=x.getBoundingClientRect();if(r.top<=hy&&r.bottom>hy)dk=x.matches('.dark,.scene,#join')});hd.classList.toggle('is-s',y>8&&!dk);hd.classList.toggle('is-d',y>8&&dk);hd.classList.toggle('is-up',y>ly&&y>200&&mm.hidden&&pop.hidden);ly=y};addEventListener('scroll',hs,{passive:true});hs()}
   // request access modal
   var dlg=d.getElementById('access');
   if(dlg&&dlg.showModal){
