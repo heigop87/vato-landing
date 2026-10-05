@@ -343,7 +343,9 @@ h2.big{font-size:clamp(32px,5.4vw,60px);line-height:1.06;font-weight:600}
 
 /* pdf contents */
 .pdf{background:var(--white);color:var(--g950)}
-.lift{position:relative;z-index:1;will-change:transform;margin-top:calc(-1*clamp(32px,5vw,56px));border-radius:clamp(32px,5vw,56px) clamp(32px,5vw,56px) 0 0;box-shadow:0 -1px 0 var(--g100),0 -40px 80px -44px rgba(18,18,22,.16)}
+#how{position:sticky;top:0;z-index:0}
+#how::after{content:"";position:absolute;inset:0;background:var(--g950);opacity:var(--dim,0);pointer-events:none}
+.lift{position:relative;z-index:1;margin-top:calc(-1*clamp(32px,5vw,56px));border-radius:clamp(32px,5vw,56px) clamp(32px,5vw,56px) 0 0;box-shadow:0 -1px 0 var(--g100),0 -40px 80px -44px rgba(18,18,22,.16)}
 .pdf-ic{display:inline-grid;place-items:center;width:56px;height:56px;border-radius:16px;background:var(--b50);color:var(--b700)}
 .pdf-ic svg{width:28px;height:28px}
 .pdfx{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(32px,5vw,72px);align-items:center;margin-top:clamp(40px,6vw,64px)}
@@ -1328,15 +1330,12 @@ h2.big{font-size:clamp(32px,5.4vw,60px);line-height:1.06;font-weight:600}
 </script>
 <script>
 (function(){
-  if(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  var p=document.getElementById('pdf'),h=document.querySelector('#how .wrap');if(!p||!h)return;
-  var raf=0;
-  function f(){raf=0;var r=p.getBoundingClientRect(),vh=innerHeight,k=Math.max(0,Math.min(1,(vh-r.top)/(vh*.85))),e=1-Math.pow(1-k,3);
-    p.style.transform='translate3d(0,'+((1-e)*140).toFixed(1)+'px,0)';
-    h.style.transform='translate3d(0,'+(-e*60).toFixed(1)+'px,0) scale('+(1-e*.04).toFixed(3)+')';
-    h.style.opacity=(1-e*.45).toFixed(3)}
+  var h=document.getElementById('how'),p=document.getElementById('pdf');if(!h||!p)return;
+  var raf=0,red=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function pin(){h.style.top=Math.min(0,innerHeight-h.offsetHeight)+'px'}
+  function f(){raf=0;var r=p.getBoundingClientRect(),vh=innerHeight,k=Math.max(0,Math.min(1,(vh-r.top)/vh));h.style.setProperty('--dim',red?0:(k*.5).toFixed(3))}
   addEventListener('scroll',function(){if(!raf)raf=requestAnimationFrame(f)},{passive:true});
-  addEventListener('resize',f);f();
+  addEventListener('resize',function(){pin();f()});pin();f();
 })();
 </script>
 
