@@ -1260,10 +1260,13 @@ h2.big{font-size:clamp(32px,5.4vw,60px);line-height:1.06;font-weight:600}
   if(pin&&!reduce){
     root.classList.add('js');
     var sc=pin.parentNode,cmp=d.getElementById('cmp'),typed=d.getElementById('typed'),full=typed.textContent,pr=d.getElementById('price'),wasLit=false,rolled=false,raf=0;
+    var at=0,typing=false;
+    function autoType(){typing=true;var t0=null;setTimeout(function(){requestAnimationFrame(function f(t){t0=t0||t;at=Math.min(1,(t-t0)/1400);scene();if(at<1)requestAnimationFrame(f)})},350)}
     var cl=function(v){return v<0?0:v>1?1:v},K=.76;
     function scene(){raf=0;
       var r=sc.getBoundingClientRect(),raw=cl(-r.top/(r.height-innerHeight)),q=raw*K;
-      var sw=cl((q-.13)/.35),lit=cl((q-.52)/.08),ty=cl(q/.1);
+      var sw=cl((q-.13)/.35),lit=cl((q-.52)/.08),ty=Math.max(cl(q/.1),at);
+      if(!typing&&r.top<innerHeight*.6)autoType();
       typed.textContent=full.slice(0,Math.round(full.length*ty));
       pin.style.setProperty('--hint',(1-cl(q/.025)).toFixed(3));pin.style.setProperty('--ask',cl((q-.09)/.03).toFixed(3));
       pin.style.setProperty('--beam',(sw>0&&sw<1?1:0));
