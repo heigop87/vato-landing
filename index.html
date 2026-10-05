@@ -696,6 +696,8 @@ h2.big{font-size:clamp(32px,5.4vw,60px);line-height:1.06;font-weight:600}
 
 /* YachtWay site header, matches yachtway.com */
 .lede .src{color:inherit;text-decoration:underline;text-underline-offset:3px;text-decoration-color:var(--g300)}
+:root{--hh:72px}
+.ywh+main>.rhero:first-child{margin-top:calc(-1*var(--hh));padding-top:calc(var(--hh) + clamp(56px,9vw,112px))}
 .ywh{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:rgba(34,34,45,.2);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:var(--white);font-family:var(--text);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;transition:transform .3s,background-color .2s,color .2s}
 .ywh.is-s{background:#fff;backdrop-filter:none;-webkit-backdrop-filter:none;color:#22222d;box-shadow:0 1px 0 #ececf0}
 .ywh.is-up{transform:translateY(calc(-100% - 4px));box-shadow:none}
@@ -735,7 +737,7 @@ h2.big{font-size:clamp(32px,5.4vw,60px);line-height:1.06;font-weight:600}
 @media (max-width:1080px){
   .ywh-nav,.ywh-lang,.ywh-in-l,.ywh-d{display:none}
   .ywh-m{display:inline-flex}.ywh-mt{display:inline}
-  .ywh-in{height:60px;gap:4px}
+  .ywh-in{height:60px;gap:4px}:root{--hh:60px}
   .ywh-logo{position:absolute;left:50%;transform:translateX(-50%)}
   .ywlogo{height:22px}
   .ywh-cta{height:36px;padding-inline:10px;border-radius:6px}
