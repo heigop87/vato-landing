@@ -342,7 +342,9 @@ h2.big{font-size:clamp(32px,5.4vw,60px);line-height:1.06;font-weight:600}
 
 
 /* pdf contents */
-.pdf{background:var(--white);color:var(--g950);border-top:1px solid var(--g100)}
+.pdf{background:var(--white);color:var(--g950)}
+.lift{position:relative;z-index:1;margin-top:calc(-1*clamp(32px,5vw,56px));border-radius:clamp(32px,5vw,56px) clamp(32px,5vw,56px) 0 0;box-shadow:0 -1px 0 var(--g100),0 -40px 80px -44px rgba(18,18,22,.16)}
+.lift::before{content:"";position:absolute;top:14px;left:50%;width:44px;height:5px;margin-left:-22px;border-radius:9px;background:var(--g200)}
 .pdf-ic{display:inline-grid;place-items:center;width:56px;height:56px;border-radius:16px;background:var(--b50);color:var(--b700)}
 .pdf-ic svg{width:28px;height:28px}
 .pdfx{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,6fr);gap:clamp(32px,5vw,72px);align-items:center;margin-top:clamp(40px,6vw,64px)}
@@ -878,6 +880,52 @@ h2.big{font-size:clamp(32px,5.4vw,60px);line-height:1.06;font-weight:600}
   </div>
 </section>
 
+<section class="light pdf pad lift" id="pdf">
+  <div class="wrap">
+    <div class="sec-head c">
+      <span class="pdf-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg></span>
+      <span class="eyebrow">PDF report</span>
+      <h2 class="big">Every report is a PDF. <span class="grad">Send it to anyone.</span></h2>
+      <p class="lede">Email it to the owner, hand it to your buyer, and negotiate with the market behind&nbsp;you.</p>
+    </div>
+    <div class="pdfx">
+      <div class="stack rv">
+        <figure class="sheet num" aria-label="Sample report page for a 2022 Azimut S8">
+          <div class="sh-top"><span><i aria-hidden="true"></i>VATO market report</span><span>3 Oct 2026</span></div>
+          <div class="sh-boat"><b>2022 Azimut S8</b><span>450 hrs · Volvo Penta · Very Good · United States</span></div>
+          <div class="sh-hero"><small>Recommended list</small><strong data-count="3268516" data-prefix="$">$3,268,516</strong><em>From 14 comparable listings</em></div>
+          <div class="sh-band" aria-label="Asking prices: low 10% $3.00M, middle 50% $3.02M to $3.60M, high 10% $4.25M">
+            <div class="sh-track"><i class="mid"></i><i class="mk"></i></div>
+            <div class="sh-ax"><span>$3.00M</span><span>Middle 50%</span><span>$4.25M</span></div>
+          </div>
+          <div class="sh-yrs" aria-label="Listings by model year: 2022 has 3, 2023 has 4, 2024 has 6, 2025 has 1">
+            <div style="--h:50%"><i></i><span>2022</span></div><div style="--h:67%"><i></i><span>2023</span></div><div style="--h:100%"><i></i><span>2024</span></div><div style="--h:17%"><i></i><span>2025</span></div>
+          </div>
+          <div class="sh-lines" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+        </figure>
+      </div>
+      <div class="inside rv">
+        <span class="eyebrow">What's inside</span>
+        <ol class="toc num stg">
+          <li><b>Vessel details</b><span>2022 Azimut S8 · 450 hrs</span></li>
+          <li><b>The headline number</b><span>$3,268,516</span></li>
+          <li><b>What the market says</b><span>-17.0% avg cut</span></li>
+          <li><b>Key metrics</b><span>$3.02M to $3.60M</span></li>
+          <li><b>Model-year comparison</b><span>2022 to 2025</span></li>
+          <li><b>Engines and location</b><span>Volvo Penta · US</span></li>
+          <li><b>Every listing in scope</b><span>14 boats</span></li>
+          <li><b>Method and notes</b><span>Each adjustment shown</span></li>
+        </ol>
+      </div>
+    </div>
+    <div class="aud num stg">
+      <div><span>Seller PDF</span><strong>3 list prices</strong><p>With the time to sell at each</p></div>
+      <div><span>Buyer PDF</span><strong>2 of 14 cut</strong><p>Price cuts and days on market</p></div>
+      <div><span>Bank PDF</span><strong>$256,854 to $322,727</strong><p>Example: fair valuation band, Axopar 37 XC</p></div>
+    </div>
+  </div>
+</section>
+
 <section class="dark pad">
   <div class="wrap proof">
     <div class="sec-head">
@@ -959,51 +1007,6 @@ h2.big{font-size:clamp(32px,5.4vw,60px);line-height:1.06;font-weight:600}
   </div>
 </section>
 
-<section class="light pdf pad" id="pdf">
-  <div class="wrap">
-    <div class="sec-head c">
-      <span class="pdf-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg></span>
-      <span class="eyebrow">PDF report</span>
-      <h2 class="big">Every report is a PDF. <span class="grad">Send it to anyone.</span></h2>
-      <p class="lede">Email it to the owner, hand it to your buyer, and negotiate with the market behind&nbsp;you.</p>
-    </div>
-    <div class="pdfx">
-      <div class="stack rv">
-        <figure class="sheet num" aria-label="Sample report page for a 2022 Azimut S8">
-          <div class="sh-top"><span><i aria-hidden="true"></i>VATO market report</span><span>3 Oct 2026</span></div>
-          <div class="sh-boat"><b>2022 Azimut S8</b><span>450 hrs · Volvo Penta · Very Good · United States</span></div>
-          <div class="sh-hero"><small>Recommended list</small><strong data-count="3268516" data-prefix="$">$3,268,516</strong><em>From 14 comparable listings</em></div>
-          <div class="sh-band" aria-label="Asking prices: low 10% $3.00M, middle 50% $3.02M to $3.60M, high 10% $4.25M">
-            <div class="sh-track"><i class="mid"></i><i class="mk"></i></div>
-            <div class="sh-ax"><span>$3.00M</span><span>Middle 50%</span><span>$4.25M</span></div>
-          </div>
-          <div class="sh-yrs" aria-label="Listings by model year: 2022 has 3, 2023 has 4, 2024 has 6, 2025 has 1">
-            <div style="--h:50%"><i></i><span>2022</span></div><div style="--h:67%"><i></i><span>2023</span></div><div style="--h:100%"><i></i><span>2024</span></div><div style="--h:17%"><i></i><span>2025</span></div>
-          </div>
-          <div class="sh-lines" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
-        </figure>
-      </div>
-      <div class="inside rv">
-        <span class="eyebrow">What's inside</span>
-        <ol class="toc num stg">
-          <li><b>Vessel details</b><span>2022 Azimut S8 · 450 hrs</span></li>
-          <li><b>The headline number</b><span>$3,268,516</span></li>
-          <li><b>What the market says</b><span>-17.0% avg cut</span></li>
-          <li><b>Key metrics</b><span>$3.02M to $3.60M</span></li>
-          <li><b>Model-year comparison</b><span>2022 to 2025</span></li>
-          <li><b>Engines and location</b><span>Volvo Penta · US</span></li>
-          <li><b>Every listing in scope</b><span>14 boats</span></li>
-          <li><b>Method and notes</b><span>Each adjustment shown</span></li>
-        </ol>
-      </div>
-    </div>
-    <div class="aud num stg">
-      <div><span>Seller PDF</span><strong>3 list prices</strong><p>With the time to sell at each</p></div>
-      <div><span>Buyer PDF</span><strong>2 of 14 cut</strong><p>Price cuts and days on market</p></div>
-      <div><span>Bank PDF</span><strong>$256,854 to $322,727</strong><p>Example: fair valuation band, Axopar 37 XC</p></div>
-    </div>
-  </div>
-</section>
 
 <section class="light pad" id="who">
   <div class="wrap">
