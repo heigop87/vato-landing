@@ -621,11 +621,11 @@ h2.big{font-size:clamp(32px,5.4vw,60px);line-height:1.06;font-weight:600}
 #join{position:relative;overflow:hidden;background:radial-gradient(120% 90% at 50% 120%,var(--g800) 0%,var(--g900) 40%,var(--g950) 80%);text-align:center}
 #join .sec-head{margin-inline:auto;justify-items:center}
 .paths{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;max-width:1120px;margin:44px auto 0;text-align:left}
-.path{padding:clamp(20px,3vw,28px);display:grid;gap:12px;align-content:start}
+.path{padding:clamp(20px,3vw,28px);display:flex;flex-direction:column;gap:12px}
 .path b{font:600 13px/1 var(--text);letter-spacing:.1em;text-transform:uppercase;color:var(--b300)}
 .path h3{font-size:22px;font-weight:600}
 .path p{font-size:15px;color:var(--g300)}
-.path .row{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
+.path .row{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;padding-top:4px}
 .path ol{margin:0;padding-left:20px;font-size:14px;color:var(--g300);display:grid;gap:4px}
 @media (max-width:1000px){.paths{grid-template-columns:1fr 1fr}.paths .path:last-child{grid-column:1/-1}}
 @media (max-width:720px){.paths{grid-template-columns:1fr}}
