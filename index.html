@@ -1193,6 +1193,7 @@ h2.big{font-size:clamp(32px,5.4vw,60px);line-height:1.06;font-weight:600}
       <label><span>Company email</span><input name="email" type="email" autocomplete="email" inputmode="email" required aria-describedby="acc-em"><small id="acc-em">Please use your company email so we can set up your business account.</small></label>
       <label><span>Phone number</span><input name="phone" type="tel" autocomplete="tel" inputmode="tel" required></label>
     </div>
+    <small class="acc-err" id="acc-send-err" role="alert" hidden>We couldn't send your request. Please try again, or email support@yachtway.com.</small>
     <button class="pill pri" type="submit">Request access</button>
   </form>
   <div class="acc-done" hidden>
@@ -1255,8 +1256,16 @@ h2.big{font-size:clamp(32px,5.4vw,60px);line-height:1.06;font-weight:600}
         if(n==='phone')ok=v.replace(/\D/g,'').length>=7;
         bad(f[n],!ok);if(!ok)first=first||f[n]});
       if(first){first.focus();return}
-      var nm=f.name.value.trim();d.getElementById('acc-msg').textContent='Thanks, '+(function(w){return w.charAt(0).toUpperCase()+w.slice(1)})(nm.split(/\s+/)[0])+'. Your request is with the YachtWay Team. We reply from support@yachtway.com.';var rv=fm.querySelector('[name=role]:checked').value;d.getElementById('acc-s-role').textContent=rv==='Other'?'Other: '+othIn.value.trim():rv;d.getElementById('acc-s-name').textContent=nm;d.getElementById('acc-s-email').textContent=f.email.value.trim();d.getElementById('acc-s-phone').textContent=f.phone.value.trim();
+      var rv=fm.querySelector('[name=role]:checked').value,body={role:rv,other:rv==='Other'?othIn.value.trim():undefined,name:f.name.value.trim(),email:f.email.value.trim(),phone:f.phone.value.trim()},btn=fm.querySelector('[type=submit]'),serr=d.getElementById('acc-send-err');
+      // On yachtway.com/services the landings app stores the request and emails support@yachtway.com; previews only show the success state
+      var api=/^\/services\//.test(location.pathname)?'/services/api/forms/vato-access':null;
+      function ok(){
+        var nm=f.name.value.trim();d.getElementById('acc-msg').textContent='Thanks, '+(function(w){return w.charAt(0).toUpperCase()+w.slice(1)})(nm.split(/\s+/)[0])+'. Your request is with the YachtWay Team. We reply from support@yachtway.com.';d.getElementById('acc-s-role').textContent=rv==='Other'?'Other: '+othIn.value.trim():rv;d.getElementById('acc-s-name').textContent=nm;d.getElementById('acc-s-email').textContent=f.email.value.trim();d.getElementById('acc-s-phone').textContent=f.phone.value.trim();
       fm.hidden=true;done.hidden=false;done.querySelector('h2').focus({preventScroll:true});dlg.scrollTop=0;fm.reset();oth.hidden=true;
+      }
+      if(!api){ok();return}
+      serr.hidden=true;btn.disabled=true;
+      fetch(api,{method:'POST',headers:{'content-type':'application/json'},body:JSON.stringify(body)}).then(function(r){if(!r.ok)throw r;ok()}).catch(function(){serr.hidden=false}).then(function(){btn.disabled=false});
     });
   }
   // phone CTA bar: after the hero, hidden at the final CTA
